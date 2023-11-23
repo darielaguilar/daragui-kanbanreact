@@ -1,6 +1,19 @@
-# Getting Started with Create React App
+# To Do React App
+
+This project is a simple To Do with Drag and Drop functionalities
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+# Components
+
+- Card
+- Column
+- NewItemForm
+- AddNewItem
+
+# Custom Hooks
+
+- useFocus
 
 ## Available Scripts
 

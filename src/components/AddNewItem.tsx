@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AddItemButton } from "../styles";
 import { NewItemForm } from "./NewItemForm";
+
 type AddNewItemProps = {
     onAdd(text:string):void;
     toggleButtonText:string;

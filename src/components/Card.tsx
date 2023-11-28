@@ -2,6 +2,7 @@ import { FC } from "react";
 import { CardContainer } from "../styles"
 
 type CardProps = {
+    id: string
     text: string;
 }
 

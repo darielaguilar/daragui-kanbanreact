@@ -1,19 +1,22 @@
 import { FC } from "react";
 import { AppContainer } from "./styles";
-import { Card } from "./components/Card";
+import  { addList } from "./state/actions";
 import { Column } from "./components/Column";
 import { AddNewItem } from "./components/AddNewItem";
+import { useAppState } from "./state/AppStateContext";
+
+
 
 export const App = () => {
+
+  const { lists, dispatch } = useAppState() 
+
   return (
   <AppContainer>
-    <Column text="Por hacer">
-      <Card text="Generar plantilla de la app"/>
-    </Column>
-    <Column text="En progreso">
-      <Card text="Aprender Typescript"/>
-    </Column>
-    <AddNewItem toggleButtonText="+ Add another list" onAdd={console.log}/>
+    {lists.map((list) => (
+      <Column text={list.text} key={list.id} id={list.id}/>
+    ))}
+    <AddNewItem toggleButtonText="+ Add another list" onAdd={text => dispatch(addList(text))}/>
   </AppContainer>
   );
 }

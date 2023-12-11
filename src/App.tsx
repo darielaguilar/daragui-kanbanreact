@@ -4,7 +4,7 @@ import  { addList } from "./state/actions";
 import { Column } from "./components/Column";
 import { AddNewItem } from "./components/AddNewItem";
 import { useAppState } from "./state/AppStateContext";
-
+import { CustomDragLayer } from "./components/CustomDragLayer";
 
 
 export const App = () => {
@@ -13,6 +13,7 @@ export const App = () => {
 
   return (
   <AppContainer>
+    <CustomDragLayer/>
     {lists.map((list) => (
       <Column text={list.text} key={list.id} id={list.id}/>
     ))}

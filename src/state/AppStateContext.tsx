@@ -57,11 +57,17 @@ const appData: AppState = {
         lists: [
             {
                 id: "0",
-                text: "To Do",
+                text: "Aprendiendo a usar la app",
                 tasks: [
                     {
                         id: "c0", 
-                        text:"Generar plantilla de app"
+                        text:"Las columnas se pueden arrastrar",
+                        state:"FINISHED"
+                    },
+                    {
+                        id: "c1", 
+                        text:"Se pueden crear nuevas tareas y columnas",
+                        state: "FINISHED"
                     }
                 ]
             },
@@ -71,14 +77,19 @@ const appData: AppState = {
                 tasks: [
                     {
                          id:"c2",
-                         text:"Aprende Typescript"
+                         text:"Agregando funcionalidad de borrar tareas",
+                         state: "PENDING"
                         }
                     ]
             },
             {
                 id: "2",
                 text: "Hecho",
-                tasks: [{ id:"c3", text:"Comienza a usar tipado estatico"}]
+                tasks: [{
+                     id:"c3", 
+                     text:"Organizado lugar de trabajo",
+                     state: "PENDING"
+                    }]
             }
         ],
     }

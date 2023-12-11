@@ -5,6 +5,45 @@ type AddItemButtonProps = {
     dark?: boolean
 }
 
+type DragPreviewWrapperProps = {
+    position:{
+        x: number
+        y: number
+    }
+}
+interface DragPreviewContainerProps {
+    isHidden?: boolean
+    isPreview?: boolean
+}
+
+
+
+export const DragPreviewWrapper = styled.div.attrs<DragPreviewWrapperProps>(({position: {x, y}}) => ({
+    style: {
+        transform: `translate(${x}px, ${y}px)`
+    }
+}))<DragPreviewWrapperProps>``
+
+export const DragPreviewContainer = styled.div<DragPreviewContainerProps>`
+    transform: ${props => (props.isPreview ? "rotate(5deg)": undefined)};
+    opacity: ${props => (props.isHidden  ? 0 : 1)};
+`
+
+export const CustomDragLayerContainer = styled.div`
+    height: 100%;
+    left: 5;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+`
+export const TaskStateContainer = styled.div`
+    margin-inline-start: 200px;
+    align-items:end;   
+    display: inline-block;
+`
+
 export const AddItemButton = styled.button<AddItemButtonProps>`
     background-color: #ffffff3d;
     border-radius: 3px;
@@ -31,7 +70,7 @@ export const NewItemFormContainer = styled.div`
 `
 
 export const NewItemButton = styled.button`
-    background-color: #5aac44;
+    background-color: #5aac46;
     border-radius: 3px;
     border:none;
     box-shadow: none;
@@ -51,20 +90,20 @@ export const NewItemInput = styled.input`
 
 export const AppContainer = styled.div`
     align-items: flex-start;
-    background-color: #3179ba;
+    background-color: #6066ff;
     display: flex;
     flex-direction: row;
     height: 100%;
-    padding: 20px;
+    padding: 30px;
     width: 100%;
 `
 
-export const ColumnContainer = styled.div`
-    background-color: #ebecf0;
+export const ColumnContainer = styled(DragPreviewContainer)`
+    background-color: #ddccff;
     width: 300px;
     min-height: 40px;
-    margin-right: 20px;
-    border-radius: 5px;
+    margin-right: 30px;
+    border-radius: 6px;
     padding: 8px 8px;
     flex-grow: 0;
 `
@@ -74,7 +113,7 @@ export const ColumnTitle = styled.div`
     font-weight: bold;
 `
 
-export const CardContainer = styled.div`
+export const CardContainer = styled(DragPreviewContainer)`
     background-color: #fff;
     cursor: pointer;
     margin-bottom: 0.5rem;
